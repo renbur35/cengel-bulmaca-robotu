@@ -242,11 +242,10 @@ export default function GridEditor() {
 
               {cell.type === 'CLUE' && cell.clues && (
                 <foreignObject x={xPos + 2} y={yPos + 2} width={CELL_SIZE - 4} height={CELL_SIZE - 4}>
-                  <div className="w-full h-full flex flex-col justify-start items-start text-[8px] leading-tight text-slate-800 overflow-hidden" xmlns="http://www.w3.org/1999/xhtml">
+                  <div className="w-full h-full flex flex-col justify-start items-start text-[8px] leading-tight text-slate-800 overflow-hidden">
                     {cell.clues.map((clue, idx) => (
                       <div key={idx} className="mb-1 w-full border-b border-slate-200 pb-0.5 last:border-0 relative pr-3">
                         <span className="font-semibold">{clue.text}</span>
-                        {/* Ok İkonları */}
                         <div className="absolute right-0 top-0 text-[10px] font-black text-blue-600">
                           {clue.direction === 'RIGHT' && '→'}
                           {clue.direction === 'DOWN' && '↓'}

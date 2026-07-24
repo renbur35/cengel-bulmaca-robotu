@@ -1,4 +1,4 @@
-import { CellData } from '../store/usePuzzleStore';
+import { CellData } from '../types';
 
 export interface SlotInfo {
   startX: number;

@@ -5,6 +5,7 @@ export type EditorMode = 'LETTER' | 'CLUE' | 'PHOTO';
 
 interface PuzzleState {
   grid: PuzzleGrid;
+  editorMode: EditorMode;
   // Seçim / Sürükleme
   selectedCellId: string | null;
   selectionBounds: { startX: number; startY: number; endX: number; endY: number } | null;
@@ -27,6 +28,8 @@ interface PuzzleState {
   // Asistan
   isAssistantOpen: boolean;
   toggleAssistant: () => void;
+  suggestedWords?: string[];
+  setSuggestedWords?: (words: string[]) => void;
 }
 
 export const usePuzzleStore = create<PuzzleState>((set) => ({
@@ -39,6 +42,9 @@ export const usePuzzleStore = create<PuzzleState>((set) => ({
   selectionBounds: null,
   isDragging: false,
   editorMode: 'LETTER',
+  isAssistantOpen: true,
+
+  toggleAssistant: () => set((state) => ({ isAssistantOpen: !state.isAssistantOpen })),
 
   initializeGrid: (width: number, height: number) => {
     const cells: Record<string, CellData> = {};
